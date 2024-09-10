@@ -1,4 +1,11 @@
 export const calculate = (a, b, operator) => {
+    a = parseFloat(a);
+    b = parseFloat(b);
+
+    if (isNaN(a) || isNaN(b)) {
+        return 'Invalid operator';
+    }
+
     switch (operator) {
         case '+':
             return a + b;
@@ -23,5 +30,7 @@ console.log(calculate(7, 2, '*'));   // Affiche 14
 console.log(calculate(12, 3, '/'));  // Affiche 4
 console.log(calculate(8, 0, '/'));   // Affiche "Division by zero is not allowed"
 console.log(calculate(4, 5, '%'));   // Affiche "Invalid operator"
+console.log(calculate('5', '3', '+')); // Affiche 8
+console.log(calculate('10', '4', '-')); // Affiche 6
 
 export default calculate;
