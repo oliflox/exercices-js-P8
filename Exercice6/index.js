@@ -11,8 +11,15 @@ function clearDisplay() {
 function calculateResult() {
     const display = document.getElementById('display');
     try {
+        if (display.value.includes('/0')) {
+            throw new Error('Division by zero is not allowed');
+        }
         display.value = eval(display.value);
     } catch (e) {
-        display.value = 'Erreur';
+        if (e.message === 'Division by zero is not allowed') {
+            display.value = 'Division by zero is not allowed';
+        } else {
+            display.value = 'Erreur';
+        }
     }
 }
