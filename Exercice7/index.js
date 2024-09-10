@@ -1,10 +1,15 @@
 function convertToBinary() {
     const decimalInput = document.getElementById('decimalInput').value;
     
+    if (!/^\d+$/.test(decimalInput)) {
+        document.getElementById('binaryResult').textContent = '';
+        return;
+    }
+    
     const decimalNumber = parseInt(decimalInput, 10);
     
     if (isNaN(decimalNumber)) {
-        document.getElementById('binaryResult').textContent = 'Veuillez entrer un nombre décimal valide.';
+        document.getElementById('binaryResult').textContent = '';
         return;
     }
     
